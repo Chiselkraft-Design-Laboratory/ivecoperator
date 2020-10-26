@@ -34,6 +34,7 @@ const useStyles = makeStyles(
         borderRadius: theme.spacing(3),
         textDecoration: "none",
         transition: "transform background 0.65s ease-in-out",
+        fontWeight: 700,
         "&:hover": {
           textDecoration: "none",
           cursor: "pointer",
@@ -43,7 +44,6 @@ const useStyles = makeStyles(
     active: {
       background: theme.palette.G1,
       color: theme.palette.D1,
-      fontWeight: 700,
     },
 
     searchbar: {
