@@ -1,5 +1,12 @@
 import React from "react";
 import { Grid, makeStyles } from "@material-ui/core";
+import NavBar from "components/navbar";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  useLocation as location,
+  useHistory as history,
+} from "react-router-dom";
+import { urlRoutes } from "constants/routes";
 
 const useStyles = (dialog) =>
   makeStyles(
@@ -14,7 +21,14 @@ const useStyles = (dialog) =>
   );
 
 const BaseLayout = ({ dialog, children }) => {
+  const isLogged = useSelector((state) => state.login.isLogged);
+
   const cl = useStyles(dialog)();
+
+  if (location().pathname !== urlRoutes.login && !isLogged) {
+    history().push(urlRoutes.login);
+  }
+
   return (
     <Grid
       container
@@ -22,6 +36,8 @@ const BaseLayout = ({ dialog, children }) => {
       wrap="nowrap"
       classes={{ root: cl.root }}
     >
+      {isLogged ? <NavBar /> : null}
+
       {children}
     </Grid>
   );

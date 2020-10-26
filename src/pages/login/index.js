@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { withRouter } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Button,
   FormControl,
@@ -10,6 +12,9 @@ import {
   Typography,
 } from "@material-ui/core";
 import BrandIcon from "assets/logo";
+import { signIn } from "../../stores/actions/LoginAction";
+import { urlRoutes } from "constants/routes";
+import { isEmail } from "../../common/regex";
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -83,8 +88,31 @@ const useStyles = makeStyles(
   { index: 1 }
 );
 
-const LoginPage = () => {
+const LoginPage = ({ history }) => {
   const cl = useStyles();
+
+  const [userName, setUserName] = useState("");
+  const [Password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
+  const isLogged = useSelector((state) => state.login.isLogged);
+
+  const verify = () => {
+    const result = isEmail(userName);
+
+    if (Password && result) {
+      dispatch(signIn(userName, Password));
+    } else {
+      alert("bad credentials");
+    }
+  };
+
+  useEffect(() => {
+    if (isLogged) {
+      alert("logged in");
+      history.push(urlRoutes.home);
+    }
+  }, [isLogged]);
 
   return (
     <Grid item xs classes={{ root: cl.root }}>
@@ -99,6 +127,7 @@ const LoginPage = () => {
                 required
                 fullWidth
                 placeholder="username"
+                onChange={(e) => setUserName(e.currentTarget.value)}
               />
             </FormControl>
             <FormControl fullWidth classes={{ root: cl.formcontrol }}>
@@ -108,10 +137,15 @@ const LoginPage = () => {
                 fullWidth
                 type="password"
                 placeholder="password"
+                onChange={(e) => setPassword(e.currentTarget.value)}
               />
             </FormControl>
             <FormControl fullWidth classes={{ root: cl.formcontrol }}>
-              <Button size="medium" classes={{ root: cl.btnsignin }}>
+              <Button
+                size="medium"
+                classes={{ root: cl.btnsignin }}
+                onClick={verify}
+              >
                 Sign In
               </Button>
             </FormControl>
@@ -125,4 +159,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default withRouter(LoginPage);
