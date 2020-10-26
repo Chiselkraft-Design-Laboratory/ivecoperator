@@ -95,6 +95,7 @@ const LoginPage = () => {
             <FormControl fullWidth classes={{ root: cl.formcontrol }}>
               {/* <InputLabel htmlFor="sign-in form">username</InputLabel> */}
               <Input
+                autoFocus
                 disableUnderline
                 required
                 fullWidth
@@ -111,7 +112,11 @@ const LoginPage = () => {
               />
             </FormControl>
             <FormControl fullWidth classes={{ root: cl.formcontrol }}>
-              <Button size="medium" classes={{ root: cl.btnsignin }}>
+              <Button
+                type="submit"
+                size="medium"
+                classes={{ root: cl.btnsignin }}
+              >
                 Sign In
               </Button>
             </FormControl>
