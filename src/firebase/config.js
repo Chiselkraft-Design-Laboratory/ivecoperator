@@ -9,8 +9,10 @@ var config = {
   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE,
   messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
 };
+
 firebase.initializeApp(config);
 
 export const firebaseDatabase = firebase.database();
 export const firebaseStorage = firebase.storage();
 export const functions = firebase.functions();
+export const Auth = firebase.auth();

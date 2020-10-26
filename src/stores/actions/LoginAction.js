@@ -1,5 +1,5 @@
 import { SIGN_IN } from "../action-types/Actions";
-import { Login } from "../../common/functions/Loginfunctions";
+import { Login } from "../../services/authService";
 
 export const signIn = (username, password) => {
   return async (dispatch) => {
