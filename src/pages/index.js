@@ -11,10 +11,10 @@ const PageView = () => {
     <React.Fragment>
       <Suspense fallback={<div>Loading...</div>}>
         <LoginPage />
-        <DashboardPage />
+        {/* <DashboardPage />
         <FleetPage />
         <UsersPage />
-        <TransactionsPage />
+        <TransactionsPage /> */}
       </Suspense>
     </React.Fragment>
   );
