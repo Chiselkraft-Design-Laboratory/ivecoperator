@@ -1,8 +1,15 @@
 import React from "react";
 
+import BaseLayout from "layout/baselayout";
+import PageView from "pages";
+
 class IvecOperatorApp extends React.Component {
   render() {
-    return <React.Fragment>Hello world</React.Fragment>;
+    return (
+      <BaseLayout>
+        <PageView />
+      </BaseLayout>
+    );
   }
 }
 
