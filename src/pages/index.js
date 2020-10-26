@@ -11,6 +11,8 @@ const TransactionsPage = lazy(() => import("pages/transactions"));
 const PageView = () => {
   return (
     <React.Fragment>
+
+  
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           <Route exact path={urlRoutes.home}>
