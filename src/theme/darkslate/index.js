@@ -34,7 +34,7 @@ const tone = {
 
 const gradient = {
   G1: `linear-gradient(-45deg, ${tone.T1} 30%, ${tone.T2} 100%)`,
-  G2: `linear-gradient(0deg, ${dark.X3} 0%, ${dark.T0} 100%)`,
+  G2: `linear-gradient(0deg, ${tone.T3} 0%, ${tone.T0} 100%)`,
 };
 // color swatch <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
