@@ -1,4 +1,4 @@
-import { SIGN_IN } from "../action-types/Actions";
+import { SIGN_IN ,CHECK_SIGN_IN_SUCCESS} from "../action-types/Actions";
 import { Login } from "../../services/authService";
 
 export const signIn = (username, password) => {
@@ -13,5 +13,21 @@ export const signIn = (username, password) => {
       type: SIGN_IN,
       payload: result,
     });
+  };
+};
+
+
+export const checkSigtnIn = () => {
+  return async (dispatch) => {
+    var token = localStorage.getItem("token");
+
+if(token)
+{
+    dispatch({
+      type: CHECK_SIGN_IN_SUCCESS,
+      payload: token,
+    });
+  }
+
   };
 };

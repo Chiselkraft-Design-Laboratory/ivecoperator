@@ -1,1 +1,5 @@
 export const SIGN_IN = "SIGN_IN";
+export const CHECK_SIGN_IN_SUCCESS = "CHECK_SIGN_IN_SUCCESS";
+// export const CHECK_SIGN_IN_FAILURE = "CHECK_SIGN_IN_FAILURE";
+
+
