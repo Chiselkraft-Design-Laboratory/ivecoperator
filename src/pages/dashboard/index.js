@@ -1,6 +1,13 @@
-import React from "react";
-import { Grid, makeStyles, Paper } from "@material-ui/core";
+import React,{useEffect,useState} from "react";
+import { Grid, makeStyles } from "@material-ui/core";
 import DashboardCard from "components/cards";
+
+import Bargraph from "../../common/Bargraph"
+//redux
+import { useDispatch, useSelector } from "react-redux";
+//  actions
+import {firestoreCall} from "../../stores/actions/dashboardAction";
+
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -20,6 +27,23 @@ const useStyles = makeStyles(
 );
 
 const DashboardPage = () => {
+
+  const [data, setData] = useState("");
+  const isLogged = useSelector((state) => state.login.isLogged);
+
+
+  useEffect(() => {   
+
+
+    if (isLogged) {
+    dispatch(firestoreCall())
+       
+    }
+
+     
+  }, [isLogged]);
+
+  const dispatch = useDispatch();
   const cl = useStyles();
 
   return (
@@ -28,7 +52,7 @@ const DashboardPage = () => {
         <DashboardCard mini header="Title">
           content
         </DashboardCard>
-        <DashboardCard mini>card</DashboardCard>
+        <DashboardCard mini><Bargraph/></DashboardCard>
         <DashboardCard mini>card</DashboardCard>
         <DashboardCard>card</DashboardCard>
         <DashboardCard>card</DashboardCard>
