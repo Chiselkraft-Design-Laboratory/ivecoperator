@@ -112,7 +112,6 @@ const LoginPage = ({ history }) => {
     dispatch(checkSigtnIn())
 
     if (isLogged) {
-      alert("logged in");
       history.push(urlRoutes.home);    
     }
 

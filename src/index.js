@@ -15,7 +15,8 @@ ReactDOM.render(
         <IvecOperatorApp />
       </Provider>
     </Router>
-  </ThemeService>,
+  </ThemeService>
+  ,
   document.getElementById("root")
 );
 serviceWorker.unregister();

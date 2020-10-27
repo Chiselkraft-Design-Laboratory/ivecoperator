@@ -23,6 +23,8 @@ const useStyles = makeStyles(
 
 const DashboardCard = ({ mini, rounded, header, children }) => {
   const cl = useStyles();
+
+  
   return (
     <Grid item xs={10} md={mini ? 4 : 12} classes={{ root: cl.root }}>
       <Paper square={rounded ? false : true} elevation={4}>
