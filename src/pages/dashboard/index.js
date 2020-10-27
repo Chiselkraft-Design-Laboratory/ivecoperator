@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";
+import React,{useEffect} from "react";
 import { Grid, makeStyles } from "@material-ui/core";
 import DashboardCard from "components/cards";
 
@@ -28,8 +28,12 @@ const useStyles = makeStyles(
 
 const DashboardPage = () => {
 
-  const [data, setData] = useState("");
+  
   const isLogged = useSelector((state) => state.login.isLogged);
+  const parsedData = useSelector((state) => state.dashBoard.data);  //parsed data for dqshboard component
+
+
+console.log(parsedData)
 
 
   useEffect(() => {   
@@ -52,7 +56,7 @@ const DashboardPage = () => {
         <DashboardCard mini header="Title">
           content
         </DashboardCard>
-        <DashboardCard mini><Bargraph/></DashboardCard>
+        <DashboardCard mini><Bargraph data ={parsedData?parsedData.distanceData:null}/></DashboardCard> 
         <DashboardCard mini>card</DashboardCard>
         <DashboardCard>card</DashboardCard>
         <DashboardCard>card</DashboardCard>

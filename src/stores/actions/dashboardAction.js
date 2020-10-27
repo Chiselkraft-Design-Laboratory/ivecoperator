@@ -13,7 +13,9 @@ export const firestoreCall = () => {
      var result = null;
       if (data) {
         await data.then((res) => (result=res));
-          var ParsedData=parseData(result)
+          var parsedData=parseData(result)
+
+          
 
         // console.log("result",result)
 
@@ -21,7 +23,7 @@ export const firestoreCall = () => {
   
         dispatch({
           type: FIRESTORE_CALL,
-          payload: result,
+          payload: parsedData,
         });
       }
   

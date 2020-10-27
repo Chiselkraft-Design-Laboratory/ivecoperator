@@ -57,20 +57,6 @@ catch(e)
 export function parseData(data)
 {
 
-  
-//     var totalEarnings=0
-//     var totalDistance=0
-//     var dataObj={}
-// data.map((val,index)=>
-// {
-//    console.log(val)
-// //    totalEarnings += parseInt(val.Amount) 
-// //    totalDistance += parseFloat(val.distanceTravelled)
-
-// })
-
-// dataObj.totalEarnings = totalEarnings
-// dataObj.totalTrips=data.length-1
 var flag = 0
 var earningJson = []
 var distanceJson = []
@@ -85,10 +71,6 @@ for (var i = 0; i < data.length - 1; i++) {
 
 
       if (data[i].timestamp.toDate().toString().substr(0, 16) == data[j].timestamp.toDate().toString().substr(0, 16) && data[i].isIterated == false) {
-
-        console.log(data[i].timestamp.toDate().toString().substr(0, 16))
-        console.log(data[j].timestamp.toDate().toString().substr(0, 16))
-
 
         data[j].isIterated = true
         totaldistance = data[j].distaceTravelled + totaldistance
@@ -126,8 +108,12 @@ for (var i = 0; i < data.length - 1; i++) {
     }
 }
 
-console.log(earningJson)
-console.log(distanceJson)
-console.log(tripJson)
+var dataObj={}
+dataObj.earningData=earningJson;
+dataObj.distanceData=distanceJson;
+dataObj.tripData=tripJson;
+
+ return dataObj
+
 
 }
