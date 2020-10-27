@@ -123,6 +123,7 @@ const LoginPage = ({ history }) => {
             <FormControl fullWidth classes={{ root: cl.formcontrol }}>
               {/* <InputLabel htmlFor="sign-in form">username</InputLabel> */}
               <Input
+                autoFocus
                 disableUnderline
                 required
                 fullWidth
@@ -142,9 +143,9 @@ const LoginPage = ({ history }) => {
             </FormControl>
             <FormControl fullWidth classes={{ root: cl.formcontrol }}>
               <Button
+                type="submit"
                 size="medium"
                 classes={{ root: cl.btnsignin }}
-                onClick={verify}
               >
                 Sign In
               </Button>
