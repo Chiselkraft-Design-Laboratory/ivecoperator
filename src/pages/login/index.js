@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import BrandIcon from "assets/logo";
-import { signIn } from "../../stores/actions/LoginAction";
+import { signIn,checkSigtnIn } from "../../stores/actions/LoginAction";
 import { urlRoutes } from "constants/routes";
 import { isEmail } from "../../common/regex";
 
@@ -108,10 +108,15 @@ const LoginPage = ({ history }) => {
   };
 
   useEffect(() => {
+
+    dispatch(checkSigtnIn())
+
     if (isLogged) {
       alert("logged in");
-      history.push(urlRoutes.home);
+      history.push(urlRoutes.home);    
     }
+
+     
   }, [isLogged]);
 
   return (
