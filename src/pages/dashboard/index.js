@@ -1,10 +1,10 @@
 import React from "react";
 import { Grid, makeStyles, Paper } from "@material-ui/core";
-import DashboardCard from "components/cards/dashboardcard";
 import MiniMetrics from "./minimetrics";
 import AreaMetrics from "./areametrics";
 import BarMetrics from "./barmetrics";
 import GeoMetrics from "./geometrics";
+import IssueMetrics from "./issuemetrics";
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -91,6 +91,21 @@ const DashboardPage = ({ feed }) => {
       value: 334262,
     },
   ];
+  const dummyPieFeed = [
+    {
+      id: "open issues",
+      value: 158,
+    },
+    {
+      id: "closed",
+      value: 435,
+    },
+    {
+      id: "critical",
+      value: 41,
+    },
+  ];
+
   return (
     <Grid item xs classes={{ root: cl.root }}>
       <Grid item xs classes={{ root: cl.grid }}>
@@ -120,7 +135,7 @@ const DashboardPage = ({ feed }) => {
       <Grid item xs={10} md={3} classes={{ root: cl.grid }}>
         <GeoMetrics title="Map" feed={dummyGeoFeed} />
         <BarMetrics title="Overall Sale" feed={dummyBarFeed} />
-        <DashboardCard header="Issues" />
+        <IssueMetrics title="Issues" feed={dummyPieFeed} />
       </Grid>
     </Grid>
   );
