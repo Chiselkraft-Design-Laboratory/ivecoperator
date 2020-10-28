@@ -4,10 +4,10 @@ import { Grid, Paper, makeStyles } from "@material-ui/core";
 const useStyles = makeStyles(
   (theme) => ({
     root: {
-      padding: theme.spacing(0.5),
+      padding: theme.spacing(1.5),
+
       "& > *": {
         width: "100%",
-        minHeight: 240,
         padding: theme.spacing(2),
         display: "flex",
         flexDirection: "column",
