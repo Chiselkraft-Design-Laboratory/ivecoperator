@@ -1,10 +1,11 @@
 import React from "react";
 import { Grid, makeStyles } from "@material-ui/core";
 import DefaultCard from "components/cards";
-import MiniMetrics from "./minimetrics";
 import * as dummies from "dummies/dummymetrics";
 import { colors as accent } from "theme/darkslate";
+import MiniMetrics from "./minimetrics";
 import BarMetrics from "./barmetrics";
+import AreaMetrics from "./areametrics";
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -59,6 +60,11 @@ const DashboardPage = () => {
           title="parameter"
           feed={dummies.dummyBarFeed}
           accent={accent.tone.T0}
+        />
+        <AreaMetrics
+          title="parameter"
+          feed={dummies.dummyAreaFeed}
+          accent={[accent.T8, accent.T9, accent.T10]}
         />
         <DefaultCard>card</DefaultCard>
         <DefaultCard>card</DefaultCard>
