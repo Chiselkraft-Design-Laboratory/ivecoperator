@@ -70,6 +70,11 @@ const DashboardPage = () => {
       </Grid>
       <Grid item xs={10} md={3} classes={{ root: cl.grid }}>
         <GeoMetrics title="map" feed={dummies.dummyGeoFeed} />
+        <BarMetrics
+          title="parameter"
+          feed={dummies.dummyBarFeed}
+          accent={accent.tone.T0}
+        />
         <DefaultCard>card</DefaultCard>
         <DefaultCard>card</DefaultCard>
       </Grid>
