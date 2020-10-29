@@ -4,6 +4,7 @@ import DefaultCard from "components/cards";
 import MiniMetrics from "./minimetrics";
 import * as dummies from "dummies/dummymetrics";
 import { colors as accent } from "theme/darkslate";
+import BarMetrics from "./barmetrics";
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -54,7 +55,11 @@ const DashboardPage = () => {
           high
           feed={dummies.dummyBarFeed}
         />
-        <DefaultCard>card</DefaultCard>
+        <BarMetrics
+          title="parameter"
+          feed={dummies.dummyBarFeed}
+          accent={accent.tone.T0}
+        />
         <DefaultCard>card</DefaultCard>
         <DefaultCard>card</DefaultCard>
       </Grid>
