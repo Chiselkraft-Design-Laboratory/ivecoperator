@@ -1,10 +1,10 @@
 import React from "react";
-import { Grid, makeStyles, Typography } from "@material-ui/core";
+import { Grid, makeStyles, Typography, Box, Avatar } from "@material-ui/core";
 import DefaultCard from "components/cards";
 import { ResponsiveChoropleth } from "@nivo/geo";
 import worldmap from "dummies/worldmap.json";
 
-const useStyles = (high) =>
+const useStyles = () =>
   makeStyles(
     (theme) => ({
       root: {},
@@ -12,8 +12,24 @@ const useStyles = (high) =>
         width: "100%",
         height: 240,
       },
-      accent: {
-        color: high ? theme.palette.T3 : theme.palette.T5,
+      list: {
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "nowrap",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        padding: theme.spacing(2, 1),
+        color: theme.palette.T9,
+        borderTop: `1px solid ${theme.palette.D3}`,
+        "& > *": {
+          "&:first-child": {
+            width: 24,
+            height: 24,
+            marginRight: theme.spacing(1),
+            fontSize: "0.6rem",
+            background: theme.palette.T9,
+          },
+        },
       },
     }),
     { index: 1 }
@@ -31,7 +47,7 @@ const GeoMetrics = ({ accent, title, caption, value, percent, high, feed }) => {
   return (
     <DefaultCard header={header}>
       <Grid container>
-        <Grid item xs classes={{ root: cl.metrics }}>
+        <Grid item xs={12} classes={{ root: cl.metrics }}>
           <ResponsiveChoropleth
             data={feed}
             features={worldmap.features}
@@ -47,6 +63,28 @@ const GeoMetrics = ({ accent, title, caption, value, percent, high, feed }) => {
             borderWidth={0.5}
             borderColor="#152538"
           />
+        </Grid>
+        <Grid item xs={12}>
+          <Box classes={{ root: cl.list }}>
+            <Avatar>JK</Avatar>
+            <Typography variant="caption">230 New Customers</Typography>
+          </Box>
+          <Box classes={{ root: cl.list }}>
+            <Avatar>RJ</Avatar>
+            <Typography variant="caption">43 Trips</Typography>
+          </Box>
+          <Box classes={{ root: cl.list }}>
+            <Avatar>MB</Avatar>
+            <Typography variant="caption">65 Trips</Typography>
+          </Box>
+          <Box classes={{ root: cl.list }}>
+            <Avatar>CH</Avatar>
+            <Typography variant="caption">547 Trips</Typography>
+          </Box>
+          <Box classes={{ root: cl.list }}>
+            <Avatar>DL</Avatar>
+            <Typography variant="caption">42 Trips</Typography>
+          </Box>
         </Grid>
       </Grid>
     </DefaultCard>
