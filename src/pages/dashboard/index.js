@@ -1,12 +1,14 @@
 import React from "react";
 import { Grid, makeStyles } from "@material-ui/core";
-import DefaultCard from "components/cards";
 import * as dummies from "dummies/dummymetrics";
+import dummyTrip from "dummies/tripdata";
 import { colors as accent } from "theme/darkslate";
 import MiniMetrics from "./minimetrics";
 import BarMetrics from "./barmetrics";
 import AreaMetrics from "./areametrics";
 import GeoMetrics from "./geometrics";
+import IssueMetrics from "./issuemetrics";
+import TripList from "./triplist";
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -30,7 +32,7 @@ const useStyles = makeStyles(
 
 const DashboardPage = () => {
   const cl = useStyles();
-
+  console.log("dummyTrip", dummyTrip);
   return (
     <Grid item xs classes={{ root: cl.root }}>
       <Grid item xs classes={{ root: cl.grid }}>
@@ -67,6 +69,7 @@ const DashboardPage = () => {
           feed={dummies.dummyAreaFeed}
           accent={[accent.T8, accent.T9, accent.T10]}
         />
+        <TripList title="Recent Trips" feed={dummyTrip} />
       </Grid>
       <Grid item xs={10} md={3} classes={{ root: cl.grid }}>
         <GeoMetrics title="map" feed={dummies.dummyGeoFeed} />
@@ -75,8 +78,11 @@ const DashboardPage = () => {
           feed={dummies.dummyBarFeed}
           accent={accent.tone.T0}
         />
-        <DefaultCard>card</DefaultCard>
-        <DefaultCard>card</DefaultCard>
+        <IssueMetrics
+          title="issues"
+          accent={accent.tone.T6}
+          feed={dummies.dummyPieFeed}
+        />
       </Grid>
     </Grid>
   );
