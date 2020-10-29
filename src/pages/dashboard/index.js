@@ -6,6 +6,7 @@ import { colors as accent } from "theme/darkslate";
 import MiniMetrics from "./minimetrics";
 import BarMetrics from "./barmetrics";
 import AreaMetrics from "./areametrics";
+import GeoMetrics from "./geometrics";
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -66,11 +67,9 @@ const DashboardPage = () => {
           feed={dummies.dummyAreaFeed}
           accent={[accent.T8, accent.T9, accent.T10]}
         />
-        <DefaultCard>card</DefaultCard>
-        <DefaultCard>card</DefaultCard>
       </Grid>
       <Grid item xs={10} md={3} classes={{ root: cl.grid }}>
-        <DefaultCard>card</DefaultCard>
+        <GeoMetrics title="map" feed={dummies.dummyGeoFeed} />
         <DefaultCard>card</DefaultCard>
         <DefaultCard>card</DefaultCard>
       </Grid>
