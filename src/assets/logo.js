@@ -12,6 +12,7 @@ let BrandIcon = (props) => {
       width={props.size || 256}
       height={cH}
       preserveAspectRatio="xMidYMid meet"
+      className={props.className}
     >
       <path
         fill={props.color || "inherit"}
